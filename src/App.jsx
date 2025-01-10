@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Textfit } from "react-textfit"
 import styles from "./App.module.css"
 
 const classNames = (...classes) => {
@@ -20,9 +21,13 @@ export default function App() {
       setResult("")
     } else if (!operator) {
       // if there is no operator, append the number to the first operand
-      setOperand1((prev) => prev + textContent)
+      if (operand1.length < 10) {
+        setOperand1((prev) => prev + textContent)
+      }
     } else {
-      setOperand2((prev) => prev + textContent)
+      if (operand2.length < 10) {
+        setOperand2((prev) => prev + textContent)
+      }
     }
   }
 
@@ -146,11 +151,13 @@ export default function App() {
 
   return (
     <div className={styles.wrapper}>
-      <div
+      <Textfit
         className={classNames(styles.screen, hasResult ? styles.result : "")}
+        mode="single"
+        max={32}
       >
         {screenValue}
-      </div>
+      </Textfit>
       <div className={styles.buttons}>
         {NUMS.map((btn) => (
           <button
