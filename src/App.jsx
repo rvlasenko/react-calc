@@ -13,11 +13,13 @@ export default function App() {
 
   const numClickHandler = ({ target: { textContent } }) => {
     if (result !== "") {
+      // if there is a result, clear the screen and start a new calculation
       setOperand1(textContent)
       setOperand2("")
       setOperator("")
       setResult("")
     } else if (!operator) {
+      // if there is no operator, append the number to the first operand
       setOperand1((prev) => prev + textContent)
     } else {
       setOperand2((prev) => prev + textContent)
@@ -25,7 +27,17 @@ export default function App() {
   }
 
   const signClickHandler = ({ target: { textContent } }) => {
-    if (!operator) {
+    if (operand1 === "") {
+      return
+    }
+
+    if (result !== "") {
+      // if there is a result, use it as the first operand and start a new calculation
+      setOperand1(result)
+      setOperand2("")
+      setOperator(textContent)
+      setResult("")
+    } else if (!operator) {
       setOperator(textContent)
     }
   }
@@ -44,6 +56,9 @@ export default function App() {
     }
 
     setResult(result)
+    setOperand1(result)
+    setOperand2("")
+    setOperator("")
   }
 
   const clearClickHandler = () => {
