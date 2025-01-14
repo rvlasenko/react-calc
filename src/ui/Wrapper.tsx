@@ -1,4 +1,10 @@
-export default function Wrapper(props) {
+import React from "react"
+
+export interface IProps {
+  children: React.ReactNode
+}
+
+export default function Wrapper(props: IProps) {
   const { children } = props
 
   return (

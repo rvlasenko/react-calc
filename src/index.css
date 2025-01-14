@@ -1,8 +1,18 @@
-body,
-input,
-textarea,
-button {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-yellow {
+    @apply bg-yellow-100 shadow-md rounded-2xl h-12 text-yellow-600 font-medium flex justify-center items-center cursor-pointer;
+  }
+  .btn-orange {
+    @apply bg-yellow-500 shadow-md rounded-2xl h-12 text-white font-medium text-xl flex justify-center items-center cursor-pointer;
+  }
+  .btn-grey {
+    @apply bg-gray-200 shadow-md rounded-2xl h-12 text-black font-medium flex justify-center items-center cursor-pointer;
+  }
+  .btn-green {
+    @apply bg-green-500 shadow-md rounded-2xl h-12 text-white font-medium text-xl flex justify-center items-center cursor-pointer;
+  }
 }

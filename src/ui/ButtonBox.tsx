@@ -1,4 +1,10 @@
-export default function ButtonBox(props) {
+import React from "react"
+
+export interface IProps {
+  children: React.ReactNode
+}
+
+export default function ButtonBox(props: IProps) {
   const { children } = props
 
   return (
